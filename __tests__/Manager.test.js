@@ -17,4 +17,5 @@ test('gets Manager information', () => {
     expect(manager.getEmail()).toBe('subjectnate');
     expect(manager.getOfficeNum()).toBe('4');
     expect(manager.getRole()).toBe('Manager');
+    console.log(manager);
 })
