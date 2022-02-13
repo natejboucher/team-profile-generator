@@ -8,7 +8,7 @@ function Template() {
     this.intern = [];
 }
 
-Template.prototype.createManager = function(manager) {
+Template.prototype.createManager = function (manager) {
     return `
     <div class="card p-0 col-3 shadow">
         <div class="card-header">
@@ -30,11 +30,39 @@ Template.prototype.createManager = function(manager) {
             `
 }
 
+Template.prototype.createEngineer = function (engineer) {
+    for (let i = 0; i < engineer.length; i++) {
+        return `
+        <div class="card p-0 col-3 shadow">
+            <div class="card-header">
+                <h3 class="text-center">${engineer[i].name}</h3>
+                <h4>Icon ${engineer[i].getRole()}</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${engineer[i].id}</li>
+                <li class="list-group-item">
+                    Email:  <br/>
+                    ${engineer[i].email}
+                </li>
+                <li class="list-group-item">
+                    Github: <br/>
+                    <a class="text-decoration-none" href="${engineer[i].getGithub()}">${engineer[i].getGithub()}</a>
+                </li>
+            </ul>
+        </div>
+            `;
+    }
+}
+
 Template.prototype.createHtml = function (manager, engineer, intern) {
     this.manager = manager;
     this.engineer = engineer;
     this.intern = intern;
-    return `${this.createManager(this.manager)}`
+
+    return `
+    ${this.createEngineer(this.engineer)}
+    `;
+
     // return `
     // <!DOCTYPE html>
     // <html lang="en">
@@ -57,7 +85,7 @@ Template.prototype.createHtml = function (manager, engineer, intern) {
 
     //     <main class="container">
     //         <section class="row">
-    //             ${createManager(this.manager)}
+    //             ${this.createManager(this.manager)}
 
     //         </section>
     //     </main>
@@ -65,7 +93,7 @@ Template.prototype.createHtml = function (manager, engineer, intern) {
     // </body>
 
     // </html>
-    // `
-}
+    // `;
+};
 
 module.exports = Template;
