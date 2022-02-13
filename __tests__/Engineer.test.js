@@ -15,6 +15,6 @@ test('gets Engineer information', () => {
     expect(engineer.getName()).toBe('Nate');
     expect(engineer.getId()).toBe('h1n1');
     expect(engineer.getEmail()).toBe('subjectnate');
-    expect(engineer.getGithub()).toBe(`https://github.com/natejboucher.com`);
+    expect(engineer.getGithub()).toBe(`https://github.com/natejboucher`);
     expect(engineer.getRole()).toBe('Engineer');
 })
