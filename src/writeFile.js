@@ -8,7 +8,7 @@ const writeFile = fileContent => {
         return;
       }
       resolve({
-        message:'HTML Generated!'
+        message: 'HTML Generated!'
       });
     });
   });
